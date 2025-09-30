@@ -1,0 +1,752 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MTL1062 — Introduction to Logistics Management (Study Guide)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #f5fbfb;            /* soft pale */
+      --card: #ffffff;
+      --muted: #6b7280;
+      --accent: #6aa6b7;        /* calm teal */
+      --accent-2: #88c0bf;
+      --glass: rgba(255,255,255,0.6);
+      --shadow: 0 6px 20px rgba(33,41,49,0.06);
+      --max-width: 1100px;
+      --radius: 14px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: linear-gradient(180deg, #f8fcfc 0%, var(--bg) 100%);
+      color:#0f1724;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.6;
+    }
+
+    /* Top Navbar */
+    .topbar{
+      position:fixed;
+      top:12px;
+      left:50%;
+      transform:translateX(-50%);
+      width:calc(100% - 40px);
+      max-width:1200px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.85));
+      border-radius:12px;
+      padding:10px 14px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(6px) saturate(120%);
+      z-index:999;
+    }
+    .brand{
+      display:flex;gap:12px;align-items:center;flex:0 0 auto
+    }
+    .logo{
+      width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:14px
+    }
+    .title{font-weight:600;font-size:15px}
+    .subtitle{font-size:12px;color:var(--muted)}
+
+    nav{
+      margin-left:6px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;flex:1 1 auto
+    }
+    nav a{
+      text-decoration:none;padding:8px 10px;border-radius:8px;color:var(--muted);font-weight:600;font-size:13px
+    }
+    nav a:hover{background:rgba(0,0,0,0.03);color:var(--accent)}
+    nav a.active{background:rgba(102,179,191,0.12);color:var(--accent);}
+
+    .search-wrap{display:flex;align-items:center;gap:8px;margin-left:auto}
+    .search{border:1px solid rgba(15,23,36,0.06);padding:8px 10px;border-radius:10px;min-width:200px}
+    .hamburger{display:none;border:0;background:transparent;padding:8px}
+
+    main{
+      max-width:var(--max-width);
+      margin:110px auto 60px auto;
+      padding:24px;
+    }
+
+    .grid{
+      display:grid;grid-template-columns:1fr;gap:18px
+    }
+
+    .card{
+      background:var(--card);padding:20px;border-radius:12px;box-shadow:var(--shadow);border:1px solid rgba(12,17,23,0.03)
+    }
+    h1{font-size:20px;margin:0 0 6px 0}
+    h2{font-size:18px;margin:6px 0 10px 0}
+    h3{font-size:15px;margin:8px 0}
+    p{margin:6px 0;color:#12202a}
+    ul,ol{margin:8px 0 12px 20px}
+
+    .meta{display:flex;gap:12px;align-items:center;color:var(--muted);font-size:13px}
+    .chip{background:linear-gradient(180deg, rgba(102,179,191,0.12), rgba(136,192,191,0.08));padding:6px 8px;border-radius:999px;font-weight:600;color:var(--accent)}
+
+    pre{background:#f3fbfb;padding:12px;border-radius:10px;overflow:auto}
+    code{background:#f6f9f9;padding:2px 6px;border-radius:6px;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', monospace}
+
+    /* Section anchor link */
+    .section-title{display:flex;align-items:center;gap:10px}
+    .link-btn{border:0;background:transparent;color:var(--muted);font-size:13px;cursor:pointer}
+
+    /* Back to top */
+    .back-top{position:fixed;right:18px;bottom:18px;background:var(--accent);color:white;border:0;padding:10px 12px;border-radius:12px;box-shadow:var(--shadow);cursor:pointer}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .topbar{left:10px;right:10px;width:auto;transform:none}
+      nav{display:none}
+      .hamburger{display:block}
+      .search{min-width:120px}
+    }
+
+    /* print */
+    @media print{
+      body{background:white;color:black}
+      .topbar, .back-top{display:none}
+      main{margin:0;padding:0}
+    }
+
+    /* subtle highlight for search mark */
+    mark{background:linear-gradient(90deg,#fff9c4,#e6f7f7);padding:0 2px;border-radius:3px}
+  </style>
+</head>
+<body>
+
+  <header class="topbar" role="banner">
+    <div class="brand">
+      <div class="logo">KNJ</div>
+      <div>
+        <div class="title">MTL1062 — Study Guide</div>
+        <div class="subtitle">Introduction to Logistics Management</div>
+      </div>
+    </div>
+
+    <nav id="main-nav" role="navigation" aria-label="Main navigation">
+      <a href="#unit1">Unit 1</a>
+      <a href="#unit2">Unit 2</a>
+      <a href="#unit3">Unit 3</a>
+      <a href="#unit4">Unit 4</a>
+      <a href="#unit5">Unit 5</a>
+      <a href="#unit6">Unit 6</a>
+      <a href="#unit7">Unit 7</a>
+      <a href="#unit8">Unit 8</a>
+      <a href="#unit9">Unit 9</a>
+      <a href="#formulas">Formulas</a>
+      <a href="#exam">Exam Tips</a>
+      <a href="past-paper-analysis.html">Past Paper Analysis</a>
+      <a href="mock-exam.html">Mock Exam</a>
+      <a href="another-paper.html">Another Paper</a>
+      <a href="answers.html">Answer Sheet of 2023</a>
+    </nav>
+
+    <div class="search-wrap">
+      <input id="search" class="search" placeholder="Search topics or keywords..." aria-label="Search topics" />
+      <button class="hamburger" id="menu-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="grid">
+
+      <section class="card" id="intro">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div>
+            <h1>MTL1062 — Introduction to Logistics Management</h1>
+            <div class="meta"><span class="chip">Complete Study Guide</span><span>Concise • Readable • Exam-focused</span></div>
+          </div>
+          <div style="text-align:right;color:var(--muted)">
+            <div style="font-weight:600">Tips</div>
+            <div style="font-size:13px">Use the navbar to jump between units. Try the search box to filter sections.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Unit 1 -->
+      <section class="card" id="unit1">
+        <div class="section-title">
+          <h2>Unit 1: Background of Logistics Management</h2>
+          <button class="link-btn" data-anchor="unit1" title="Copy link">🔗</button>
+        </div>
+
+        <h3>Key Definitions</h3>
+        <p><strong>Logistics Management</strong>: The process of planning, implementing and controlling efficient and effective forward and reverse flows of materials, information and capital, from the point of origin to point of consumption to support procurement, manufacturing and customer service related supply chain operational requirements.</p>
+
+        <p><strong>Supply Chain Management</strong>: The process of managing all activities from raw material purchasing to final good consumption, including sourcing, manufacturing, product delivering, and product's end of life management.</p>
+
+        <h3>Key Differences: Logistics vs Supply Chain Management</h3>
+        <ul>
+          <li><strong>Logistics</strong>: Component of SCM, focuses on flow and storage within/between organizations</li>
+          <li><strong>Supply Chain</strong>: Broader concept managing entire network from suppliers to end customers</li>
+          <li><strong>Scope</strong>: Logistics = single organization; SCM = multiple organizations</li>
+        </ul>
+
+        <h3>7 R's of Logistics</h3>
+        <ol>
+          <li>Right Product</li>
+          <li>Right Quantity</li>
+          <li>Right Condition</li>
+          <li>Right Place</li>
+          <li>Right Time</li>
+          <li>Right Customer</li>
+          <li>Right Price</li>
+        </ol>
+
+        <h3>Supply Chain Flows</h3>
+        <ol>
+          <li><strong>Product/Service Flow</strong>: Forward (downstream) and reverse (upstream) movement of goods</li>
+          <li><strong>Information Flow</strong>: Product data, demand, inventory levels, order status, tracking</li>
+          <li><strong>Financial Flow</strong>: Payments, credit terms, ownership transfer</li>
+          <li><strong>Knowledge Flow</strong>: Technological information, R&amp;D, product development</li>
+        </ol>
+
+        <h3>Decision Phases in Supply Chain</h3>
+        <ol>
+          <li><strong>SC Strategy/Design</strong> (Long-term): Location, capacity, network configuration</li>
+          <li><strong>SC Planning</strong> (Medium-term, ~1 year): Inventory policies, sourcing, market allocation</li>
+          <li><strong>SC Operation</strong> (Daily/Weekly): Order allocation, scheduling, delivery</li>
+        </ol>
+
+        <h3>Logistics Systems Components</h3>
+        <ul>
+          <li><strong>Order Processing</strong>: Information flow, order receipt to delivery</li>
+          <li><strong>Inventory Management</strong>: Raw materials, WIP, finished goods</li>
+          <li><strong>Transportation</strong>: Movement between locations, 5 basic modes</li>
+          <li><strong>Warehousing</strong>: Storage, handling, value-added services</li>
+        </ul>
+
+        <h3>Current Trends</h3>
+        <ul>
+          <li>Warehouse automation</li>
+          <li>Blockchain technology</li>
+          <li>Internet of Things (IoT)</li>
+          <li>Sustainability/Green operations</li>
+          <li>Transparency and digitalization</li>
+        </ul>
+      </section>
+
+      <!-- Unit 2 -->
+      <section class="card" id="unit2">
+        <div class="section-title">
+          <h2>Unit 2: Inventory Management</h2>
+          <button class="link-btn" data-anchor="unit2" title="Copy link">🔗</button>
+        </div>
+
+        <h3>What is Inventory?</h3>
+        <p>Inventory includes all materials and goods that are purchased, partially completed, and finished goods produced.</p>
+
+        <h3>Types of Inventory</h3>
+        <ol>
+          <li><strong>Raw Materials</strong>: Unprocessed inputs for manufacturing</li>
+          <li><strong>Work-in-Process (WIP)</strong>: Partially completed materials</li>
+          <li><strong>Finished Goods</strong>: Completed products ready for shipment</li>
+          <li><strong>Pipeline Stock</strong>: Inventory in transit between locations</li>
+          <li><strong>MRO</strong>: Maintenance, Repair, Operating supplies (don't become part of product)</li>
+        </ol>
+
+        <h3>Functions of Inventory</h3>
+        <ul>
+          <li>Accommodate demand variations</li>
+          <li>Achieve production economies of scale</li>
+          <li>Buffer against supply variability</li>
+          <li>Take advantage of quantity discounts</li>
+          <li>Allow for price fluctuations</li>
+          <li>Provide immediate customer service</li>
+        </ul>
+
+        <h3>Demand Types</h3>
+        <ul>
+          <li><strong>Independent Demand</strong>: End products affected by market conditions</li>
+          <li><strong>Dependent Demand</strong>: Components/materials based on end product demand</li>
+        </ul>
+
+        <h3>Key Concepts</h3>
+        <p><strong>Safety Stock</strong>: Extra inventory to protect against demand/supply uncertainties</p>
+        <p><strong>Bullwhip Effect</strong>: Increasing demand fluctuations moving upstream in supply chain</p>
+        <ul>
+          <li><strong>Causes</strong>: Lack of information, complexity, promotions, poor communication</li>
+          <li><strong>Solutions</strong>: CPFR, VMI, information sharing</li>
+        </ul>
+
+        <p><strong>Lead Time</strong>: Time from order placement to delivery</p>
+        <p><strong>Stock-out</strong>: When demand cannot be met from available stock</p>
+
+        <h3>Inventory Classification</h3>
+        <p><strong>ABC Analysis (80/20 Rule)</strong>:</p>
+        <ul>
+          <li><strong>A Items</strong>: 80% of cost, 20% of volume (very important)</li>
+          <li><strong>B Items</strong>: 15% of cost, 30% of volume (moderate importance)</li>
+          <li><strong>C Items</strong>: 5% of cost, 50% of volume (least important)</li>
+        </ul>
+
+        <h3>Inventory Costs</h3>
+        <ol>
+          <li><strong>Capital Cost</strong>: Physical stock cost + opportunity cost</li>
+          <li><strong>Storage Cost</strong>: Space, handling, warehousing</li>
+          <li><strong>Service Cost</strong>: Management, insurance</li>
+          <li><strong>Risk Cost</strong>: Pilferage, deterioration, damage, obsolescence</li>
+          <li><strong>Reorder/Setup Cost</strong>: Order placement costs</li>
+          <li><strong>Stock-out Cost</strong>: Cost of not satisfying customer orders</li>
+        </ol>
+
+        <h3>Economic Order Quantity (EOQ)</h3>
+        <p><strong>Formula</strong>: <code>Q* = √(2DS/H)</code></p>
+        <p><strong>Assumptions</strong>:</p>
+        <ul>
+          <li>Single product</li>
+          <li>Known annual demand</li>
+          <li>Even demand throughout year</li>
+          <li>Fixed lead time</li>
+          <li>Single delivery per order</li>
+          <li>No quantity discounts</li>
+          <li>No stock-outs allowed</li>
+        </ul>
+
+        <h3>Performance Measures / KPIs</h3>
+        <ul>
+          <li>Inventory turnover</li>
+          <li>Inventory days</li>
+          <li>Order fill rate</li>
+          <li>On-time in full (OTIF)</li>
+          <li>Credit period</li>
+        </ul>
+      </section>
+
+      <!-- Unit 3 -->
+      <section class="card" id="unit3">
+        <div class="section-title">
+          <h2>Unit 3: Warehouse Management</h2>
+          <button class="link-btn" data-anchor="unit3" title="Copy link">🔗</button>
+        </div>
+
+        <h3>Warehouse vs Distribution Center</h3>
+        <p><strong>Warehouse</strong>: Long-term storage focus, less complex operations, doesn't serve external customers directly.</p>
+        <p><strong>Distribution Center</strong>: Short-term storage with rapid movement, value-added services (mixing, packaging, fulfillment), serves external customers, more complex, technology-enabled operations.</p>
+
+        <h3>Warehouse Functions</h3>
+        <ol>
+          <li>Receiving: Unloading, checking, updating systems</li>
+          <li>Put-away: Moving to designated storage locations</li>
+          <li>Storage: Reserve storage and picking areas</li>
+          <li>Order Picking: Retrieving items for customer orders</li>
+          <li>Sortation: Organizing picked items by order</li>
+          <li>Packing: Consolidating and preparing for shipment</li>
+          <li>Shipping: Loading and dispatching to customers</li>
+        </ol>
+
+        <h3>Warehouse Activities</h3>
+        <ul>
+          <li>Cross-docking (minimal storage time)</li>
+          <li>Consolidation (combining small shipments)</li>
+          <li>Break-bulk (dividing large shipments)</li>
+          <li>Value-added services (labeling, kitting, assembly)</li>
+        </ul>
+
+        <h3>Types by Ownership</h3>
+        <ol>
+          <li>Private: Owned/operated by product owner</li>
+          <li>Public: Third-party storage on rental basis</li>
+          <li>Contract: Long-term outsourcing arrangement</li>
+          <li>Multi-client: Shared facilities managed by 3PL</li>
+        </ol>
+
+        <h3>Order Picking Methods</h3>
+        <ul>
+          <li>Area System: Picker moves throughout warehouse</li>
+          <li>Zone System: Divided zones, items sent to marshalling area</li>
+          <li>Multi-order System: Pick multiple orders simultaneously</li>
+        </ul>
+
+        <h3>Material Handling Equipment (MHE)</h3>
+        <ul>
+          <li>Pallets and tote bins</li>
+          <li>Hand/powered pallet trucks</li>
+          <li>Forklifts and reach trucks</li>
+          <li>Conveyors</li>
+          <li>Automated Guided Vehicles (AGVs)</li>
+        </ul>
+
+        <h3>Design Considerations</h3>
+        <ul>
+          <li>Single floor preferred</li>
+          <li>Maximum height utilization</li>
+          <li>Straight product flow (separate in/out doors)</li>
+          <li>Mezzanine floors for vertical space utilization</li>
+          <li>Safety systems (sprinklers, alarms, training)</li>
+        </ul>
+      </section>
+
+      <!-- Unit 4 -->
+      <section class="card" id="unit4">
+        <div class="section-title">
+          <h2>Unit 4: Transportation</h2>
+          <button class="link-btn" data-anchor="unit4" title="Copy link">🔗</button>
+        </div>
+
+        <h3>Role in Supply Chain</h3>
+        <p>Occupies 30-60% of logistics costs. Critical for global supply chains — enables economies of scale and scope and supports customer service levels.</p>
+
+        <h3>Modes of Transportation</h3>
+        <ul>
+          <li><strong>Road Transport</strong>: High flexibility and accessibility; door-to-door; higher cost per unit for long distances; TL vs LTL.</li>
+          <li><strong>Rail Transport</strong>: High capacity, lower unit costs, suitable for bulk commodities, limited accessibility.</li>
+          <li><strong>Water/Maritime</strong>: Lowest cost for bulk/long distances, high capacity, slow transit times, port-to-port service.</li>
+          <li><strong>Air Transport</strong>: Fastest mode, for high value/low volume goods, most expensive, weather dependent.</li>
+          <li><strong>Pipeline</strong>: Continuous flow, limited to liquids/gases, high fixed costs, low variable costs, very reliable.</li>
+        </ul>
+
+        <h3>Cost Structure</h3>
+        <ul>
+          <li><strong>Fixed Costs</strong>: Infrastructure, terminals, equipment</li>
+          <li><strong>Variable Costs</strong>: Fuel, labor, maintenance</li>
+        </ul>
+
+        <h3>Transportation Principles</h3>
+        <ul>
+          <li><strong>Economy of Scale</strong>: Cost per unit decreases with shipment size</li>
+          <li><strong>Economy of Distance</strong>: Cost per mile decreases with distance</li>
+        </ul>
+
+        <h3>Modal Selection Factors</h3>
+        <ul>
+          <li>Distance and shipment size</li>
+          <li>Speed requirements</li>
+          <li>Product characteristics</li>
+          <li>Cost considerations</li>
+          <li>Service reliability</li>
+        </ul>
+
+        <h3>Containerization</h3>
+        <p>Standardized containers (TEU, FEU) enable intermodal compatibility, reduced handling costs, enhanced security, and faster loading/unloading.</p>
+
+        <h3>Multimodal Transportation</h3>
+        <p>Combines multiple transport modes to optimize cost and service but requires coordination to reduce overall transit time.</p>
+      </section>
+
+      <!-- Unit 5 -->
+      <section class="card" id="unit5">
+        <div class="section-title">
+          <h2>Unit 5: Just-in-Time (JIT) and Lean Systems</h2>
+          <button class="link-btn" data-anchor="unit5" title="Copy link">🔗</button>
+        </div>
+
+        <h3>JIT Philosophy</h3>
+        <p>"Making only what is needed, when it is needed, and only the quantity needed"</p>
+
+        <h3>Push vs Pull Systems</h3>
+        <p><strong>Push System</strong>: Forecast-driven production, materials pushed through process, higher inventory levels.</p>
+        <p><strong>Pull System</strong>: Demand-driven production, materials pulled by downstream needs, lower inventory levels.</p>
+
+        <h3>Lean Manufacturing</h3>
+        <p>Focus on eliminating waste (Muda) while respecting people and continuous improvement.</p>
+
+        <h3>Eight Wastes (TIMWOOD)</h3>
+        <ol>
+          <li>Transportation</li>
+          <li>Inventory</li>
+          <li>Motion</li>
+          <li>Waiting</li>
+          <li>Overproduction</li>
+          <li>Over-processing</li>
+          <li>Defects</li>
+          <li>Underutilized Employees</li>
+        </ol>
+
+        <h3>5S System</h3>
+        <ol>
+          <li>Sort</li>
+          <li>Simplify</li>
+          <li>Shine</li>
+          <li>Standardize</li>
+          <li>Sustain</li>
+        </ol>
+
+        <h3>JIT Elements & Benefits</h3>
+        <ul>
+          <li>Kanban System, Cellular Manufacturing, Small Lot Sizes, Quick Setups, Flexible Workforce, Supplier Partnerships, TQM</li>
+          <li>Benefits: Reduced inventory, improved quality, lower costs, shorter lead times, increased productivity</li>
+        </ul>
+      </section>
+
+      <!-- Unit 6 -->
+      <section class="card" id="unit6">
+        <div class="section-title">
+          <h2>Unit 6: Outsourcing and 3PL/4PL</h2>
+          <button class="link-btn" data-anchor="unit6" title="Copy link">🔗</button>
+        </div>
+
+        <h3>Outsourcing Definition & Drivers</h3>
+        <p>Process of contracting third parties to perform non-core business functions. Drivers: focus on core competencies, cost reduction, access to expertise, improved flexibility, risk sharing.</p>
+
+        <h3>Third-Party Logistics (3PL)</h3>
+        <p>External providers managing logistics functions for clients. Functions include transportation management, warehousing, inventory management, order fulfillment, customs clearance, reverse logistics.</p>
+
+        <h3>3PL Selection Process</h3>
+        <ol>
+          <li>Long list of potential providers</li>
+          <li>Request for Quotations (RFQ)</li>
+          <li>Proposal assessment</li>
+          <li>Short-listing</li>
+          <li>Reference checks</li>
+          <li>Final negotiations</li>
+        </ol>
+
+        <h3>Implementation Steps</h3>
+        <ol>
+          <li>Project planning</li>
+          <li>Clear responsibility definition</li>
+          <li>Transition management</li>
+          <li>Regular monitoring</li>
+          <li>Performance evaluation</li>
+        </ol>
+
+        <h3>Fourth-Party Logistics (4PL) & Logistics Provider Evolution</h3>
+        <p>4PL = Supply chain integrator managing multiple 3PLs. Evolution: 1PL → 2PL → 3PL → 4PL → 5PL → 6PL → 7PL (sustainable/combined services).</p>
+
+        <h3>Performance Measurement</h3>
+        <p>Balanced Scorecard Approach: Financial, Customer, Process, Learning/Growth metrics.</p>
+      </section>
+
+      <!-- Unit 7 -->
+      <section class="card" id="unit7">
+        <div class="section-title">
+          <h2>Unit 7: Reverse Logistics</h2>
+          <button class="link-btn" data-anchor="unit7" title="Copy link">🔗</button>
+        </div>
+
+        <h3>Definition & Purposes</h3>
+        <p>Planning, implementing and controlling efficient flow of materials from point of consumption back to point of origin for value recovery or proper disposal. Purposes include returns management, remanufacturing, recycling, proper disposal, warranty replacements.</p>
+
+        <h3>Reverse Logistics Process</h3>
+        <ol>
+          <li>Customer Return Request</li>
+          <li>Gatekeeping: Initial screening</li>
+          <li>Collection: Transportation back</li>
+          <li>Inspection and Sortation</li>
+          <li>Disposition: Repair, recycle, dispose</li>
+        </ol>
+
+        <h3>Drivers & Green Logistics</h3>
+        <p>Drivers: cost reduction, revenue recovery, environmental regulations, competition, customer expectations. Green logistics: minimizing carbon footprint, sustainable packaging, energy-efficient transportation, waste reduction.</p>
+
+        <h3>Value Recovery Options</h3>
+        <ul>
+          <li>Resale in secondary markets</li>
+          <li>Remanufacturing</li>
+          <li>Component recovery</li>
+          <li>Material recycling</li>
+          <li>Energy recovery</li>
+        </ul>
+      </section>
+
+      <!-- Unit 8 -->
+      <section class="card" id="unit8">
+        <div class="section-title">
+          <h2>Unit 8: Humanitarian Logistics</h2>
+          <button class="link-btn" data-anchor="unit8" title="Copy link">🔗</button>
+        </div>
+
+        <h3>Definition & Objectives</h3>
+        <p>Planning, implementing and controlling flow of goods to alleviate suffering of vulnerable people. Objectives: maximize responsiveness, minimize distribution time and cost, provide life-saving response.</p>
+
+        <h3>Key Characteristics & Players</h3>
+        <ul>
+          <li>80% of humanitarian operations are logistics</li>
+          <li>Not-for-profit focus, extremely challenging conditions, time-critical nature</li>
+        </ul>
+        <p>Players include governments, military, NGOs, donors, private sector companies.</p>
+
+        <h3>Challenges & ERUs</h3>
+        <p>Challenges: infrastructure damage, security concerns, communication breakdowns, coordination complexity, resource constraints, cultural considerations.</p>
+        <p>Emergency Response Units (ERU): standardized packages of trained personnel and equipment for rapid deployment.</p>
+
+        <h3>Humanitarian Software Systems</h3>
+        <p>Examples: SUMA (Supply Management), CTS (Commodity Tracking System), HELIOS.</p>
+      </section>
+
+      <!-- Unit 9 -->
+      <section class="card" id="unit9">
+        <div class="section-title">
+          <h2>Unit 9: Contemporary Issues</h2>
+          <button class="link-btn" data-anchor="unit9" title="Copy link">🔗</button>
+        </div>
+
+        <h3>Current Challenges</h3>
+        <ol>
+          <li>Information Management: processing enormous amounts of data</li>
+          <li>Globalization: complex international supply chains</li>
+          <li>Customization: mass markets becoming niche markets</li>
+          <li>Manpower: knowledge workers, high expectations</li>
+          <li>Social Responsibility: sustainable supply chains</li>
+        </ol>
+
+        <h3>Technology Trends & Sustainability</h3>
+        <ul>
+          <li>Industry 4.0: IoT, AI, automation</li>
+          <li>Digitalization: real-time tracking, analytics</li>
+          <li>Blockchain: supply chain transparency</li>
+          <li>Robotics: automated warehousing and fulfillment</li>
+        </ul>
+
+        <h3>E-commerce Impact</h3>
+        <ul>
+          <li>Last-mile delivery challenges</li>
+          <li>Omnichannel fulfillment</li>
+          <li>Returns management</li>
+          <li>Customer expectations for speed</li>
+        </ul>
+      </section>
+
+      <!-- Formulas & Exam tips -->
+      <section class="card" id="formulas">
+        <div class="section-title">
+          <h2>Key Formulas and Calculations</h2>
+          <button class="link-btn" data-anchor="formulas" title="Copy link">🔗</button>
+        </div>
+
+        <h3>EOQ Formula</h3>
+        <p><code>Q* = √(2DS/H)</code></p>
+        <p>Where: <strong>Q*</strong> = Optimal order quantity, <strong>D</strong> = Annual demand, <strong>S</strong> = Ordering cost per order, <strong>H</strong> = Holding cost per unit per year.</p>
+
+        <h3>Total Cost</h3>
+        <p><code>TC = (Q/2)H + (D/Q)S</code></p>
+
+        <h3>Number of Orders per Year</h3>
+        <p><code>N = D/Q</code></p>
+
+        <h3>Time Between Orders</h3>
+        <p><code>T = Working days per year / N</code></p>
+
+        <h3>Inventory Performance Metrics</h3>
+        <ul>
+          <li><strong>Inventory Turnover</strong> = COGS / Average Inventory</li>
+          <li><strong>Days of Inventory</strong> = 365 / Inventory Turnover</li>
+          <li><strong>Fill Rate</strong> = Orders filled completely / Total orders</li>
+        </ul>
+      </section>
+
+      <section class="card" id="exam">
+        <div class="section-title">
+          <h2>Exam Preparation Tips</h2>
+          <button class="link-btn" data-anchor="exam" title="Copy link">🔗</button>
+        </div>
+
+        <h3>Key Concepts to Master</h3>
+        <ol>
+          <li>Logistics vs Supply Chain Management differences</li>
+          <li>EOQ calculations and applications</li>
+          <li>JIT/Lean principles and waste elimination</li>
+          <li>3PL/4PL functions and selection</li>
+          <li>Reverse logistics processes</li>
+          <li>Warehouse functions and design</li>
+          <li>Transportation mode selection</li>
+        </ol>
+
+        <h3>Common Question Types</h3>
+        <ul>
+          <li>Definitions: Be precise with terminology</li>
+          <li>Calculations: Practice EOQ problems</li>
+          <li>Comparisons: Logistics vs SCM, 3PL vs 4PL, etc.</li>
+          <li>Applications: Real-world scenarios</li>
+          <li>Benefits/Challenges: For each concept</li>
+        </ul>
+
+        <h3>Study Strategy</h3>
+        <ol>
+          <li>Focus on understanding concepts, not memorization</li>
+          <li>Practice calculations repeatedly</li>
+          <li>Create mind maps for complex topics</li>
+          <li>Use examples to illustrate concepts</li>
+          <li>Review case studies and applications</li>
+        </ol>
+      </section>
+
+    </div>
+  </main>
+
+  <button class="back-top" id="backTop" title="Back to top">↑ Top</button>
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('main-nav');
+    menuToggle && menuToggle.addEventListener('click', ()=>{
+      if(nav.style.display === 'flex') nav.style.display = 'none';
+      else nav.style.display = 'flex';
+    });
+
+    // Copy anchor link to clipboard
+    document.querySelectorAll('.link-btn').forEach(btn=>{
+      const anchor = btn.dataset.anchor;
+      btn.addEventListener('click', ()=>{
+        const url = location.origin + location.pathname + '#' + anchor;
+        navigator.clipboard.writeText(url).then(()=>{
+          btn.textContent = 'Copied';
+          setTimeout(()=>btn.textContent='🔗',900);
+        }).catch(()=>{
+          alert('Copy failed — use the browser address bar to share.');
+        });
+      });
+    });
+
+    // Back to top
+    const backTop = document.getElementById('backTop');
+    backTop.addEventListener('click', ()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+    // Scroll spy for nav highlighting
+    const sections = document.querySelectorAll('main section[id]');
+    const navLinks = document.querySelectorAll('#main-nav a');
+
+    const obs = new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          const id = entry.target.id;
+          navLinks.forEach(a=>a.classList.toggle('active', a.getAttribute('href') === '#'+id));
+        }
+      });
+    },{root:null,rootMargin:'-40% 0px -40% 0px',threshold:0});
+    sections.forEach(s=>obs.observe(s));
+
+    // Simple search & highlight
+    const search = document.getElementById('search');
+    search.addEventListener('input', ()=>{
+      const q = search.value.trim().toLowerCase();
+      sections.forEach(sec=>{
+        if(!sec.dataset.orig) sec.dataset.orig = sec.innerHTML;
+        const txt = sec.textContent.toLowerCase();
+        if(!q){
+          sec.innerHTML = sec.dataset.orig;
+          sec.style.display = '';
+          return;
+        }
+        if(txt.includes(q)){
+          // highlight matches (naive)
+          const re = new RegExp('('+q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') +')','gi');
+          sec.innerHTML = sec.dataset.orig.replace(re,'<mark>$1</mark>');
+          sec.style.display = '';
+        } else {
+          sec.style.display = 'none';
+        }
+      });
+    });
+
+    // Improve link clicks on small screens
+    document.querySelectorAll('#main-nav a').forEach(a=>{
+      a.addEventListener('click', ()=>{
+        if(window.innerWidth <= 900) nav.style.display='none';
+      });
+    });
+
+  </script>
+</body>
+</html>
